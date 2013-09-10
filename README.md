@@ -103,7 +103,7 @@ userController.on("create", function(req, res){
 var temp = {name: "mj", age: "21", password: "123123123"}
 var temp1 = suona.json(temp1, "name", "age")
 #=> {name: "mj", age: "21"}
-``
+```
 
 处理数组可以使用jsonArray
 ```
