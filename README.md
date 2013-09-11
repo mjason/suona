@@ -1,7 +1,7 @@
 suona
 =====
 
-一个十分简单的express封装, restful风格
+一个十分简单的express封装, restful风格, 分为Api路由和web路由,文档下个版本完善
 
 ##　开始
 -------
@@ -22,7 +22,7 @@ var auth = function(req, res, next) {
 }
 
 // 单独路由
-var usersController = new Controllers("users", "v1", ".json")
+var usersController = new Controllers("users")
 
 usersController.on("show", function(req, res) {
   res.json(200, {message: "show" + req.params.id })
@@ -45,7 +45,7 @@ usersController.on("destroy", auth, function(req, res) {
 })
 
 // 复数路由
-var userController = new suona.Controller("user", "v1", ".json")
+var userController = new suona.Controller("user")
 
 userController.on("show", function(req, res) {
   res.json(200, {message: "show" + req.params.id })
@@ -70,7 +70,7 @@ suona.app.listen("5000")
 ## before方法的使用
 
 ```javascipt
-var userController = new suona.Controller("user/:user_id/pages", "v1", ".json")
+var userController = new suona.Controller("user/:user_id/pages")
 
 userController.before("only:show:create", function(req, res, next) {
   if(req.get("token") != "123123123") {

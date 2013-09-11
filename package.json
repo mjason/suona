@@ -1,6 +1,6 @@
 {
   "name": "suona",
-  "version": "0.1.2",
+  "version": "0.2.1",
   "description": "一个简单的web api 开发框架",
   "main": "index.js",
   "scripts": {

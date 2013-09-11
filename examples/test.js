@@ -1,16 +1,21 @@
-var express = require("express")
-var app = express()
+var suna = require("../")
 
-var c = function(fn, callback) {
-  fn("/", callback)
-}
-var get = app.get
-// c(get, function(req, res){
-//   res.sned("123")
+// var user = new suna.Controller("user")
+
+// user.on("show", function(req, res) {
+//   res.send("show")
 // })
 
-get("/", function(req, res) {
-  res.send("123")
+var users = new suna.Controllers("users")
+
+users.on("index", function(req, res){
+  res.send("index")
 })
 
-app.listen("5000")
+users.on("show", function(req, res) {
+  res.send("show")
+})
+
+console.log(suna.app.routes)
+
+suna.app.listen(5000)
